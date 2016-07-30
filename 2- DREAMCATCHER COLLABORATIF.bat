@@ -1,14 +1,14 @@
 
 
 
-START node . 
-set  dcpath="%cd%"
-@echo  %dcpath%
-set collaboratif=/public/index.html
-@echo %autonome%
-set collaboratifPath=%dcpath%%collaboratif%
-@echo %collaboratifPath%
-start  /w chrome %collaboratifPath% 
+::START node . 
+::set  dcpath="%cd%"
+::@echo  %dcpath%
+::set collaboratif=/public/index.html
+::@echo %autonome%
+::set collaboratifPath=%dcpath%%collaboratif%
+::@echo %collaboratifPath%
+start  /w chrome %http://localhost:3000
 ::http://smag0.blogspot.fr https://github.com/scenaristeur/collaborativeRDFWithP5JSGraph https://github.com/scenaristeur/eveMultiDreamCatcher
 
 

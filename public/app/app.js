@@ -34,6 +34,7 @@ var agentP5js = new P5jsAgent('p5jsAgent');
 agentP5js.send('agent1', 'Hello AGENT1');
 //agentGraphe.send('agent1', 'Hello AGENT1');
 
+/*
 var agentExport = new ExportAgent('exportAgent');
-agentExport.send('guiAgent','Salut guiAgent');
+agentExport.send('guiAgent','Salut guiAgent');*/
 
