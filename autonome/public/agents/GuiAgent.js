@@ -87,7 +87,7 @@ GuiAgent.prototype.makeUi = function(){
     
     var title = document.createElement("H3");
     title.className = "title";
-    title.innerHTML = "What's your nickname ?";
+    title.innerHTML = "YOU are an expert </br>What's your nickname ?";
     form.appendChild(title);
     
     var usernameInput = document.createElement("INPUT");
