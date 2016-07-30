@@ -10,7 +10,7 @@ function Statement(sujetTemp, propriete, objetTemp) {
     if (longueurRessortVariable){
        // this. spring = physics.makeSpring(sujet.particle, objet.particle, SPRING_STRENGTH+sliderSpringStrength.value()/10, 0.4, 200*(1+(min(sujet.particle.mass/20,20)+(min(objet.particle.mass/20,20)))*(1+sliderSpringLength.value())/10), this.propriete); 
     //OK   this.spring = physics.makeSpring(sujet.particle, objet.particle, 0.01/(sujet.particle.mass+objet.particle.mass), 0.3, 500+(sujet.particle.mass+objet.particle.mass)*10, this.propriete);
-               this.spring = physics.makeSpring(sujet.particle, objet.particle, 0.001/(sujet.particle.mass+objet.particle.mass), 0.3, 300, this.propriete);
+               this.spring = physics.makeSpring(sujet.particle, objet.particle, 0.001, 0.3, 200, this.propriete);
  
         
         sujet.particle.mass=min(100,sujet.particle.mass*1.2);

@@ -12,7 +12,7 @@ var sliderZ, sliderCamZ,sliderCamX,sliderCamY;
 // graphe
 var afficheTexte = true;
 var afficheBigClasse=true;
-var mode3D=false;
+var mode3D=true;
 var maxiMass=3;
 var previous=[];
  var SPRING_STRENGTH = 0.1 ; //0.001; //
@@ -55,8 +55,8 @@ function setup(){
     
     init();
     
-    sliderZ = createSlider(0, 255, 200);
-	sliderZ.position(10, 500);
+    sliderZ = createSlider(0, 255, 0);
+	sliderZ.position(10, 660);
 	sliderZ.style('width', '80px');
 	
 	
