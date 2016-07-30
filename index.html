@@ -24,17 +24,10 @@
 
 <p>"Dreamcatcher" est un outil permettant de représenter l'information sous forme de graphes.</p>
 
-<h3>
-<a id="mais-quest-ce-quun-graphe-" class="anchor" href="#mais-quest-ce-quun-graphe-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mais qu'est-ce qu'un graphe ?</h3>
+<p>Mais qu'est-ce qu'un graphe ?
+Pour ceux qui connaissent <a href="https://fr.wikipedia.org/wiki/Carte_heuristique">les cartes heuristiques</a> (ou cartes mentales), c'est un peu la même chose, à la différence que les liens sont identifiés.</p>
 
-<p>Pour ceux qui connaissent <a href="https://fr.wikipedia.org/wiki/Carte_heuristique">les cartes heuristiques</a> (ou cartes mentales), c'est un peu la même chose, à la différence que les liens sont identifiés.</p>
-
-<p><img src="https://raw.githubusercontent.com/scenaristeur/dreamcatcherAutonome/master/images/rdf_graph_made_with_socket_chat_server_P5JS_javascript_DataVisualization_ontology_sparql.png" alt="dreamcatcher smag0 collaborative rdf graphe" title="Dreamcatcher Demo"></p>
-
-<h3>
-<a id="a-quoi-ça-sert-" class="anchor" href="#a-quoi-%C3%A7a-sert-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A quoi ça sert ?</h3>
-
-<p>Un graphe RDF me permet d'exprimer mes idées, mes projets, ma vision d'un concept sans ambiguïté, et de les partager. Il permet aussi de faciliter la communication avec les objets connectés (IOT), les machines, robots, les intelligences artificielles, ou autres programmes utilisant le Machine Learning, dans lesquelles ont peut implémenter des fonctions pour  "lire" ou "écrire" dans ces graphes. </p>
+<p><img src="https://raw.githubusercontent.com/scenaristeur/collaborativeRDFWithP5JSGraph/master/images/rdf_graph_made_with_socket_chat_server_P5JS_javascript_DataVisualization_ontology_sparql.png" alt="dreamcatcher smag0 collaborative rdf graphe" title="Dreamcatcher Demo"></p>
 
 <h3>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
@@ -55,19 +48,19 @@
 <li>Votre navigateur Chrome devrait s'ouvrir et vous devriez voir apparaître une page Web vous demandant votre "Nickname" (ou pseudo en français). Saisissez un Nickname et validez. Peut-être, à ce stade, ne pouvez-vous pas atteindre la zone de saisie et saisir votre pseudo, et pensez-vous, c'est pourri, ça ne marche pas... Mais c'est votre première épreuve pour passer au niveau suivant, il existe un endroit, dans cette page où il faut cliquer pour réactiver la zone de saisie... Je vous laisse chercher ;-).</li>
 </ul>
 
-<p><img src="https://raw.githubusercontent.com/scenaristeur/collaborativeRDFWithP5JSGraph/master/images/Dreamcatcher%20login.png" alt="dreamcatcher nickname login" title="Dreamcatcher Nickname Login Page"></p>
+<p><img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/Dreamcatcher%20login.png" alt="dreamcatcher nickname login" title="Dreamcatcher Nickname Login Page"></p>
 
 <h3>
 <a id="utilisation" class="anchor" href="#utilisation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Utilisation</h3>
 
-<p>Lorsque vous avez réussi à passer cette première épreuve, une nouvelle page s'ouvre et vous voyez apparaître trois champs de saisie préremplis. En effet, lors de votre connexion, un nouveau graphe a été créé, et une première information a été enregistré.</p>
+<p>Lorsque vous avez réussi à passer cette première épreuve, une nouvelle page s'ouvre et vous voyez apparaître trois champs de saisie pré-remplis. En effet, lors de votre connexion, un nouveau graphe a été créé, et une première information a été enregistrée.</p>
 
 <p>La première information enregistrée est que "VOUS", ou plutôt le pseudo/nickname que vous avez saisi précédemment êtes un participant au projet Dreamcatcher. Plutôt que d'utiliser le terme participant, on va même utiliser "Joueur", c'est plus fun... Après tout on est là pour s'amuser, pas pour se prendre la tête...</p>
 
 <p>La première information est donc que "PSEUDO" est un "JOUEUR".
 Au niveau du graphe, cette information se traduit par "PSEUDO type JOUEUR" et c'est ce que vous retrouvez à la fois dans les trois champs de saisie, et au milieu du graphe, sous forme de deux sphères reliées par un ressort.</p>
 
-<p>La première sphère ou "noeud" représente "PSEUDO" et la deuxième "JOUEUR", le ressort un lien qui relier ces deux noeuds est de nature type. </p>
+<p>La première sphère ou "noeud" représente "PSEUDO" et la deuxième "JOUEUR", le ressort représente le lien qui relie ces deux noeuds, et il est de nature "type". </p>
 
 <p>Vous pouvez maintenant saisir n'importe quelle information en suivant ce modèle et créer facilement des graphes. </p>
 
@@ -77,7 +70,7 @@ Au niveau du graphe, cette information se traduit par "PSEUDO type JOUEUR" et c'
 <a id="autres-fonctionnalités" class="anchor" href="#autres-fonctionnalit%C3%A9s" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autres fonctionnalités</h3>
 
 <ul>
-<li>Fonctionnalités déjà implémentés ( accessibles sous le graphe mais leur position dansla page va être modifiée)</li>
+<li>Fonctionnalités déjà implémentés ( accessibles sous le graphe mais leur position dans la page va être modifiée)</li>
 <li><p>Il est possible d'exporter le graphe que vous avez créé au format Turtle (*.ttl), afin de le partager, et le transmettre à un collaborateur en tant que pièce jointe ou le diffuser tel quel sur un site web. Le stocker sur un serveur/endpoint Sparql tel que Fuseki (Apache) ou Virtuoso vous permettra d'effectuer des requêtes <a href="https://fr.wikipedia.org/wiki/SPARQL">Sparql</a> (proche SQL).</p></li>
 <li><p>Vous pouvez-aussi modifier le graphe en l'important dans <a href="http://protege.stanford.edu/">Protege 2000</a>, ou via un éditeur de texte.</p></li>
 <li><p>Vous en aurez déduit la deuxième fonctionnalité... Après l'export... C'est l'import qui vous permet d'ouvrir un graphe téléchargé ou reçu par mail. Des fichiers exemples (*.rdf, *.ttl, *.owl...) sont également présent dans le répertoire <code>ontologies</code> inclus dans les fichiers sources.</p></li>
