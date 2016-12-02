@@ -24,33 +24,33 @@ var roomTriplets=[];
 
 io.sockets.on('connection', function (socket) {
 	var addedUser = false;
-
+	
 	// when the client emits 'new message', this listens and executes
 	socket.on('new message', function (data) {
 		var triplet = {
 			sujet : data.sujet,
 			propriete : data.propriete,
 			objet : data.objet
-		};
+		};		
 		var triplets = roomTriplets[socket.room];
 		if (triplets === undefined){
 			triplets = [];
 		}
 		triplets.push(triplet);
 		roomTriplets[socket.room] = triplets;
-		console.log( roomTriplets);
-
+		console.log("triplets : "+ roomTriplets);
+		
 		socket.broadcast.to(socket.room).emit('new message', {
 			username: socket.username,
 			message: data
 		});
 	});
-
+	
 	// when the client emits 'add user', this listens and executes
-	socket.on('add user', function (username) {
+	socket.on('add user', function (username) {	
 		console.log("add user "+username);
 		if (addedUser) return;
-
+		
 		// we store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
@@ -87,9 +87,9 @@ io.sockets.on('connection', function (socket) {
 			numUsers : numUsers,
 			options : {"prepend":true}
 		});
-	});
+	});	
 	
-
+	
 	//SUPPRIMER SENDCHAT ?
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
@@ -97,7 +97,7 @@ io.sockets.on('connection', function (socket) {
 		console.log("receive " +data);
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
-
+	
 	socket.on('switchRoom', function(newroom){
 		socket.leave(socket.room);
 		socket.join(newroom);
@@ -108,24 +108,21 @@ io.sockets.on('connection', function (socket) {
 		socket.room = newroom;
 		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
 		socket.emit('updaterooms', rooms, newroom);
-
-		socket.emit('updateGraphe', roomTriplets[socket.room]);
-
 	});
-
+	
 	// when the client emits 'typing', we broadcast it to others
 	socket.on('typing', function () {
 		message = {username: socket.username};
 		socket.broadcast.to(socket.room).emit('typing', message);
 	});
-
+	
 	// when the client emits 'stop typing', we broadcast it to others
 	socket.on('stop typing', function () {
 		socket.broadcast.to(socket.room).emit('stop typing', {
 			username : socket.username
 		});
 	});
-
+	
 	// when the user disconnects.. perform this
 	socket.on('disconnect', function () {
 		if (addedUser) {
@@ -136,7 +133,7 @@ io.sockets.on('connection', function (socket) {
 				numUsers : numUsers
 			});
 		}
-
+		
 		// remove the username from global usernames list
 		delete usernames[socket.username];
 		// update list of users in chat, client-side

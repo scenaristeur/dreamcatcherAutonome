@@ -8,7 +8,7 @@ function SocketAgent(id) {
     // execute super constructor
     eve.Agent.call(this, id);
 	this.socket= io.connect();
-	
+
     // connect to all transports configured by the system
     this.connect(eve.system.transports.getAll());
 	this.initSocket();
@@ -53,10 +53,26 @@ SocketAgent.prototype.initSocket = function(){
 	switchRoom = function(room){
 		me.socket.emit('switchRoom', room);
 	}
-	
+
+
+  // listener, whenever the server emits 'updatechat', this updates the chat body
+	me.socket.on('updateGraphe', function (username, triplets) {
+		console.log("update graphe");
+    console.log(triplets);
+    console.log("#####");
+  console.log("OBJECTIF NETTOYER LE GRAPHE EN SUPPRIMMANT LES AGENTS DE TYPE STATEMENT qd on change de room, ou les gérer autrement par p5js, établir la liste des statements de la room");
+    console.log(eve.system.transports.transports[0].agents);
+        console.log("#####");
+		data2send = { action : "log",
+			message : username + ' : '+data,
+		};
+		me.send('listenerAgent', data2send);
+	});
+
 	// listener, whenever the server emits 'updatechat', this updates the chat body
 	me.socket.on('updatechat', function (username, data) {
 		console.log("update chat");
+    console.log(data);
 		data2send = { action : "log",
 			message : username + ' : '+data,
 		};
@@ -75,7 +91,7 @@ SocketAgent.prototype.initSocket = function(){
 			}
 		});
 	});
-	
+
 	// Whenever the server emits 'login', log the login message
 	me.socket.on('login', function (data) {
 		data2send = { action : "setAttribute",
@@ -95,10 +111,10 @@ SocketAgent.prototype.initSocket = function(){
 			message : data
 		};
 		me.send('listenerAgent', data2send);
-		
+
 		for (triplet of triplets){
 			/* creer agent statement
-				var newStatement = new Statement(triplet.sujet, triplet.propriete, triplet.objet); 
+				var newStatement = new Statement(triplet.sujet, triplet.propriete, triplet.objet);
 				newStatement.add2Statements();
 			*/
 			//	console.log(triplet);
@@ -114,7 +130,7 @@ SocketAgent.prototype.initSocket = function(){
 		agentListener.$proprieteInput.attr("placeholder", "type");
 		agentListener.$objetInput.attr("placeholder", "Joueur");
 	});
-	
+
 	// Whenever the server emits 'new message', update the chat body
 	me.socket.on('new message', function (data) {
 		console.log("retour new message");
@@ -126,7 +142,7 @@ SocketAgent.prototype.initSocket = function(){
 	};
 	me.send('listenerAgent', data2send);
 	});
-	
+
 	// Whenever the server emits 'user joined', log it in the chat body
 	me.socket.on('user joined', function (data) {
 	data2send = { action : "log",
@@ -137,11 +153,11 @@ SocketAgent.prototype.initSocket = function(){
 	message : data
 	};
 	me.send('listenerAgent', data2send);
-	/* creer agent statement 
-	var newStatement = new Statement(data.username, "type", "Joueur"); 
+	/* creer agent statement
+	var newStatement = new Statement(data.username, "type", "Joueur");
 	newStatement.add2Statements();*/
 	});
-	
+
 	// Whenever the server emits 'user left', log it in the chat body
 	me.socket.on('user left', function (data) {
 	data2send = { action : "log",
@@ -157,7 +173,7 @@ SocketAgent.prototype.initSocket = function(){
 	};
 	me.send('listenerAgent', data2send);
 	});
-	
+
 	// Whenever the server emits 'typing', show the typing message
 	me.socket.on('typing', function (data) {
 	data2send = { action : "addChatTyping",
@@ -165,7 +181,7 @@ SocketAgent.prototype.initSocket = function(){
 	};
 	me.send('listenerAgent', data2send);
 	});
-	
+
 	// Whenever the server emits 'stop typing', kill the typing message
 	me.socket.on('stop typing', function (data) {
 	data2send = { action : "removeChatTyping",
@@ -173,6 +189,5 @@ SocketAgent.prototype.initSocket = function(){
 	};
 	me.send('listenerAgent', data2send);
 	});
-	
+
 	};
-		
